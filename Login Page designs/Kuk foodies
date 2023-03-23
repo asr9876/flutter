@@ -1,0 +1,298 @@
+import 'dart:ui';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:flutter/material.dart';
+// import 'package:sign_button/sign_button.dart';
+class login_pages_1 extends StatefulWidget {
+  const login_pages_1({Key? key}) : super(key: key);
+
+  @override
+  State<login_pages_1> createState() => _login_pages_1State();
+}
+
+class _login_pages_1State extends State<login_pages_1> {
+  var emailText = TextEditingController();
+  var passText = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body:
+                                                                                        //   MAIN CONTAINER JO SAB CARRY KARTA $(BACKGROUND IMAGE)
+      Container(
+            height: double.infinity,
+               width: double.infinity,
+            decoration: BoxDecoration(
+            image:DecorationImage(image: AssetImage('assets/images/backgroundImage.png'),
+              fit:BoxFit.cover,
+            ),
+          ),
+                                                                                        //MAIN COLUMN START FROM HERE
+               child: Column(
+                 mainAxisAlignment: MainAxisAlignment.start,
+                 children: [
+                                                                                        //FIRST ROW WHICH CONTAIN LOGO IMAGE
+                   Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children:[
+                         Container(
+                           // color:Colors.white,
+                             padding: EdgeInsets.zero,
+                             margin: EdgeInsets.zero,
+                             height: 350,
+                             width: 350,
+                             child: Image.asset('assets/images/logo.png',)
+                         ),
+                       ]
+
+                   ),
+                                                                                       //SECOND ROW WHICH CONTAIN SOME TEXT
+                         Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children:[
+                         Container(
+                           // color:Colors.orange,
+                           padding: EdgeInsets.zero,
+                           margin: EdgeInsets.zero,
+                           height: 65,
+                           width: 350,
+                           child: Center
+                             (child: Text("Want to eat something",
+                             style: TextStyle(
+
+                               fontWeight: FontWeight.w900,
+                               fontSize: 30,
+                               fontFamily: 'Times',
+                               color: Colors.white,
+                               decoration: TextDecoration.none,
+                             ),
+                           )
+                           ),
+
+                         ),
+                       ]
+
+                   ),
+                                                                                       //THIRD ROW FOR WHICH CONTAIN PASSWORD AND EMAIL CREDENTIALS
+                   Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children:[
+                         Container(
+                           // color:Colors.green,
+                           padding: EdgeInsets.zero,
+                           margin: EdgeInsets.zero,
+                           height: 200,
+                           width: 350,
+
+                           child: Column(
+                             mainAxisAlignment: MainAxisAlignment.start,
+                             children: [
+                               SizedBox(
+                                 height: 10,
+                               ),
+                               Container(
+
+                                 width: 300,
+                                 height: 50,
+                                 decoration: BoxDecoration(
+                                   color:Colors.white,
+                                   borderRadius: BorderRadius.circular(13)
+                                 ),
+                                 child: TextField(
+                                   controller: emailText,
+                                   decoration: InputDecoration(
+                                     labelText: 'email',
+                                     focusedBorder: OutlineInputBorder(
+                                         borderRadius: BorderRadius.circular(13),
+                                         borderSide: BorderSide(
+                                             color: Colors.blueAccent,
+                                             width: 2
+                                         )
+                                     ),
+                                     //enabledBorder jab user user us text p nahi h tab kya color hoga uska
+                                     enabledBorder: OutlineInputBorder(
+                                         borderRadius: BorderRadius.circular(13),
+                                         borderSide: BorderSide(
+                                             color: Colors.blueGrey,
+                                             width: 2
+                                         )
+                                     ),
+                                     //disabledBorder is used for taki user uske upar click na kar paye
+                                     disabledBorder: OutlineInputBorder(
+                                         borderRadius: BorderRadius.circular(13),
+                                         borderSide: BorderSide(
+                                             color: Colors.blueGrey,
+                                             width: 2
+                                         )
+                                     ),
+                                     // suffixText: "Username exists",
+                                     // prefixIcon: Icon(Icons.email,color: Colors.blueAccent,)
+
+                                   ),
+                                 ),
+                               ),
+                               SizedBox(
+                                 height: 10,
+                               ),
+                               Container(
+                                 // color:Colors.white,
+                                 width: 300,
+                                 height: 50,
+                                 decoration: BoxDecoration(
+                                     color:Colors.white,
+                                     borderRadius: BorderRadius.circular(13)
+                                 ),
+
+                                 child: TextField(
+                                     controller: passText,
+                                     decoration: InputDecoration(
+                                       labelText: 'Password',
+                                       focusedBorder: OutlineInputBorder(
+                                           borderRadius: BorderRadius.circular(13),
+                                           borderSide: BorderSide(
+                                               color: Colors.blueAccent,
+                                               width: 2
+                                           )
+                                       ),
+                                       enabledBorder: OutlineInputBorder(
+                                           borderRadius: BorderRadius.circular(13),
+                                           borderSide: BorderSide(
+                                               color: Colors.blueGrey,
+                                               width: 2
+                                           )
+                                       ),
+                                       // suffixIcon: IconButton(
+                                       //   icon: Icon(Icons.remove_red_eye,color: Colors.blue,),
+                                       //   onPressed:(){
+                                       //   },
+                                     )
+                                 ),
+                               ),
+                               SizedBox(
+                                 height: 10,
+                               ),
+                               Container
+                                 (
+                                   width: 200,
+                                   // color: Colors.yellow,
+                                   child: ElevatedButton(
+                                     onPressed: (){
+                                       String uEmail = emailText.text.toString();
+                                       String uPass = passText.text.toString();
+                                       print("Email: $uEmail,passText:$uPass");
+                                     },child: Text("log In"),
+                                   )
+                               ),
+                               Container(
+                                 // color:Colors.red,
+                                 padding: EdgeInsets.zero,
+                                 margin: EdgeInsets.zero,
+                                 height: 20,
+                                 width: 350,
+                                 child: Center(
+                                   child: Text("Forgotten your login details? Get help with logging In",
+                                     style: TextStyle(
+
+                                       fontWeight: FontWeight.w900,
+                                       fontSize: 12,
+                                       fontFamily: 'arial',
+                                       color: Colors.white,
+                                       decoration: TextDecoration.none,
+                                     ),
+                                   ),
+                                 ),
+                               ),
+                               // SizedBox(
+                               //   height: 10,
+                               // ),
+
+
+                             ],
+                           ),
+
+                         ),
+                       ]
+
+                   ),
+                                                                                       //FORTH ROW WHICH CONTAIN TERMS AND CONDITION MESSEGES
+                   Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children:[
+                         SizedBox(
+                           height: 10,
+                         ),
+                         // Container(
+                         //   color:Colors.red,
+                         //   padding: EdgeInsets.zero,
+                         //   margin: EdgeInsets.zero,
+                         //   height: 20,
+                         //   width: 350,
+                         //     child: Center(
+                         //       child: Text("Forgotten your login details? Get help with logging In",
+                         //         style: TextStyle(
+                         //
+                         //           fontWeight: FontWeight.w900,
+                         //           fontSize: 12,
+                         //           fontFamily: 'arial',
+                         //           color: Colors.white,
+                         //           decoration: TextDecoration.none,
+                         //         ),
+                         //       ),
+                         //     ),
+                         // ),
+                       ]
+
+                   ),
+                                                                                       //FIFTH ROW WHICH CONTAIN GOOGLE AND APPLE SIGN UP BUTTONS
+                   Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children:[
+
+                            Container(
+                             // color:Colors.purple,
+                             padding: EdgeInsets.zero,
+                             margin: EdgeInsets.zero,
+                             height: 100,
+                             width: 350,
+                             child:Column(
+                               children: [
+                                 SizedBox(
+                                   height: 10,
+                                 ),
+                                 Container(
+                                   height: 35,
+                               child:SignInButton(
+                                 Buttons.Google,
+                                 onPressed: () {
+                                   print("clicked");
+                                                 },
+                                           ),
+                                 ),
+                                 SizedBox(
+                                   height: 10,
+                                 ),
+                                 Container(
+                                     height: 35,
+                                     child:SignInButton(
+                                       Buttons.Apple,
+                                       onPressed: () {
+                                         print("clicked");
+                                       },
+                                     ),
+                                   ),
+
+                   //
+                               ],
+                             ),
+
+                           ),
+
+                       ]
+
+                   ),
+                 ],
+               ),
+                ),
+
+    );
+  }
+}
